@@ -2,18 +2,16 @@
 
 A graph-based recommender that moves from familiar songs (Louvain Modularity, Degree Centrality) to new communities by following natural transition paths (Betweenness Centrality, Shortest Path) in the graph.
 
-Songs are represented as audio feature vectors and connected into a similarity graph using cosine-based k-nearest neighbors. Louvain modularity is used to detect communities. Within communities, degree centrality identifies locally prominent songs, while betweenness centrality identifies bridge songs across communities. Recommendations begin with familiar songs from the source community, then transition to a nearby community via a bridge node using Dijkstra shortest path, producing a smooth, exploratory sequence.
+Songs are represented as audio feature vectors and connected into a similarity graph using cosine-based k-nearest neighbors. Louvain modularity is used to detect communities; within communities, degree centrality identifies locally prominent songs. Betweenness centrality identifies bridge songs across communities. Recommendations begin with familiar songs from the source community, then transition to a nearby community via a bridge node using Dijkstra shortest path.
 
-## Dataset
-[Spotify Tracks Dataset (Kaggle)](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset)
+Dataset: [Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset)
 
-## Live App
-[Open Streamlit App](https://song-queue-generator-ftfayxrwrrtbjsy4d2gxu6.streamlit.app/)
+Live App: [View App](https://song-queue-generator-ftfayxrwrrtbjsy4d2gxu6.streamlit.app/)
 
 ![Graph Visualization](graph.jpg)
 
 ## How to Run
-1. Clone the repository  
-2. Install dependencies with: `pip install -r requirements.txt`  
-3. Start Neo4j locally (`bolt://localhost:7687`) and update username/password in the script  
-4. Run the notebook or script to build the graph and generate recommendations  
+1. Clone repository  
+2. Install dependencies: `pip install -r requirements.txt`  
+3. Start Neo4j locally (`bolt://localhost:7687`) and update username/pw in script  
+4. Run notebook to build the graph and generate recommendations 
