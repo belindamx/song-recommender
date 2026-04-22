@@ -1,0 +1,8 @@
+pandas
+numpy
+scikit-learn
+networkx
+python-louvain
+pyarrow
+streamlit
+spotipy

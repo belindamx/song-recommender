@@ -8,9 +8,6 @@ Dataset: [Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya
 
 Live App: [View App](https://song-queue-generator-ftfayxrwrrtbjsy4d2gxu6.streamlit.app/)
 
-System Architecture:
-![Architecture Image](assets/arch_img.png)
-
 Recommendation Flow:
 ![Flow Image](assets/flow_img.png)
 
