@@ -623,37 +623,6 @@ if st.session_state.queue is not None:
         st.session_state.breadcrumb = []
         st.rerun()
 
-    # community journey banner
-    if journey:
-        def fmt_label(community_id):
-            raw = community_labels.get(community_id, 'Unknown')
-            return raw.replace('-', ' ').title()
-
-        src_label    = fmt_label(journey['input_community'])
-        bridge_label = fmt_label(journey['bridge_community'])
-        tgt_label    = fmt_label(journey['target_community'])
-
-        st.markdown(f"""
-        <div class='journey-banner'>
-            <div class='journey-nodes'>
-                <div class='journey-node'>
-                    <div class='node-label'>Start</div>
-                    <div class='node-genre'>{src_label}</div>
-                </div>
-                <div class='journey-divider'><div class='arrow'>→</div></div>
-                <div class='journey-node bridge'>
-                    <div class='node-label'>Bridge</div>
-                    <div class='node-genre'>{bridge_label}</div>
-                </div>
-                <div class='journey-divider'><div class='arrow'>→</div></div>
-                <div class='journey-node'>
-                    <div class='node-label'>Destination</div>
-                    <div class='node-genre'>{tgt_label}</div>
-                </div>
-            </div>
-            <div class='journey-subtitle'>Louvain communities · grouped by audio feature similarity</div>
-        </div>
-        """, unsafe_allow_html=True)
 
     # seed song audio profile
     seed_id = queue.iloc[0]['track_id'] if len(queue) > 0 else None

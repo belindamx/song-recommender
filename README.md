@@ -6,7 +6,7 @@ Songs are loaded as graph nodes, with edge connections based on cosine similarit
 
 Dataset: [Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset)
 
-Live App: [View App](https://song-queue-generator-ftfayxrwrrtbjsy4d2gxu6.streamlit.app/)
+Live App: [View App](https://song-path.streamlit.app)
 
 Recommendation Flow:
 ![Flow Image](assets/flow_img.png)
@@ -14,5 +14,9 @@ Recommendation Flow:
 ## How to Run
 1. Clone repository  
 2. Install dependencies: `pip install -r requirements.txt`  
-3. Start Neo4j locally (`bolt://localhost:7687`) and update username/pw in script  
-4. Run notebook to build the graph and generate recommendations 
+3. Build the graph: `python build_graph.py`  
+4. Launch the app: `streamlit run app.py`
+
+---
+
+Note: The `neo4j_version` notebook contains the original architecture using Neo4j and Docker. The Streamlit app was built for demonstrative purposes using NetworkX. 
