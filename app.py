@@ -423,6 +423,12 @@ st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Press+Start+2P&display=swap');
     html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
+    @media (prefers-color-scheme: dark) {
+        html, body, .stApp, [data-testid="stAppViewContainer"],
+        [data-testid="stMain"], section.main, .main .block-container {
+            background-color: #ffffff !important; color: #191414 !important;
+        }
+    }
 
     /* hide streamlit anchor link icon */
     a.anchor, .anchor { display: none !important; }
@@ -455,36 +461,6 @@ st.markdown("""
     }
     .breadcrumb-song { color: #1db954; font-weight: 600; }
     .breadcrumb-sep  { color: #ccc; font-size: 0.7rem; margin: 0 2px; }
-
-    /* journey banner */
-    .journey-banner {
-        display: flex; flex-direction: column; align-items: center;
-        background: #f7fdf9; border: 1.5px solid #d4f0df;
-        border-radius: 12px; padding: 20px 24px 14px 24px;
-        margin: 1.25rem 0 0.5rem 0;
-    }
-    .journey-nodes {
-        display: flex; align-items: center; justify-content: center;
-        gap: 0; width: 100%;
-    }
-    .journey-node { text-align: center; padding: 0 24px; }
-    .journey-node .node-label {
-        font-size: 0.6rem; text-transform: uppercase;
-        letter-spacing: 0.12em; color: #aaa; margin-bottom: 6px;
-    }
-    .journey-node .node-genre {
-        font-size: 1.25rem; font-weight: 800; color: #191414;
-        text-transform: capitalize;
-    }
-    .journey-node.bridge .node-genre { color: #1db954; }
-    .journey-subtitle {
-        margin-top: 12px; font-size: 0.6rem; color: #bbb;
-        text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500;
-    }
-    .journey-divider {
-        display: flex; flex-direction: column; align-items: center; padding: 0 4px;
-    }
-    .journey-divider .arrow { color: #bbb; font-size: 1.1rem; line-height: 1; }
 
     /* queue header */
     .queue-header {
@@ -644,30 +620,6 @@ if st.session_state.queue is not None:
             <span>acousticness <strong style='color:#555'>{pct(sd.get('acousticness'))}</strong></span>
         </div>""", unsafe_allow_html=True)
 
-    # journey banner
-    input_genre  = html_lib.escape(community_labels.get(journey['input_community'],  'Unknown'))
-    bridge_genre = html_lib.escape(community_labels.get(journey['bridge_community'], 'Unknown'))
-    target_genre = html_lib.escape(community_labels.get(journey['target_community'], 'Unknown'))
-    st.markdown(f"""
-    <div class='journey-banner'>
-        <div class='journey-nodes'>
-            <div class='journey-node'>
-                <div class='node-label'>From</div>
-                <div class='node-genre'>{input_genre}</div>
-            </div>
-            <div class='journey-divider'><div class='arrow'>→</div></div>
-            <div class='journey-node bridge'>
-                <div class='node-label'>Via</div>
-                <div class='node-genre'>{bridge_genre}</div>
-            </div>
-            <div class='journey-divider'><div class='arrow'>→</div></div>
-            <div class='journey-node'>
-                <div class='node-label'>To</div>
-                <div class='node-genre'>{target_genre}</div>
-            </div>
-        </div>
-        <div class='journey-subtitle'>your musical journey</div>
-    </div>""", unsafe_allow_html=True)
 
     st.markdown(f"<div class='queue-header'>{len(queue)} tracks · click → to branch from any song</div>",
                 unsafe_allow_html=True)
