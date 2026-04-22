@@ -644,6 +644,31 @@ if st.session_state.queue is not None:
             <span>acousticness <strong style='color:#555'>{pct(sd.get('acousticness'))}</strong></span>
         </div>""", unsafe_allow_html=True)
 
+    # journey banner
+    input_genre  = html_lib.escape(community_labels.get(journey['input_community'],  'Unknown'))
+    bridge_genre = html_lib.escape(community_labels.get(journey['bridge_community'], 'Unknown'))
+    target_genre = html_lib.escape(community_labels.get(journey['target_community'], 'Unknown'))
+    st.markdown(f"""
+    <div class='journey-banner'>
+        <div class='journey-nodes'>
+            <div class='journey-node'>
+                <div class='node-label'>From</div>
+                <div class='node-genre'>{input_genre}</div>
+            </div>
+            <div class='journey-divider'><div class='arrow'>→</div></div>
+            <div class='journey-node bridge'>
+                <div class='node-label'>Via</div>
+                <div class='node-genre'>{bridge_genre}</div>
+            </div>
+            <div class='journey-divider'><div class='arrow'>→</div></div>
+            <div class='journey-node'>
+                <div class='node-label'>To</div>
+                <div class='node-genre'>{target_genre}</div>
+            </div>
+        </div>
+        <div class='journey-subtitle'>your musical journey</div>
+    </div>""", unsafe_allow_html=True)
+
     st.markdown(f"<div class='queue-header'>{len(queue)} tracks · click → to branch from any song</div>",
                 unsafe_allow_html=True)
 
