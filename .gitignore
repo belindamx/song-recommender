@@ -1,5 +1,16 @@
+# data
 *.csv
+
+# python
 __pycache__/
+*.pyc
+
+# notebooks
 .ipynb_checkpoints/
+
+# environments
+.venv/
 .env
+
+# mac
 .DS_Store
